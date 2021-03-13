@@ -1,14 +1,18 @@
+import { QueryClient, useQuery } from "react-query";
+import { dehydrate } from "react-query/hydration";
 import { Box } from "@chakra-ui/react";
-import { getPopularMovies } from "../lib/movies";
 import NextImage from "next/image";
 
+import { getMovies } from "../lib/movies";
 import { IMAGE_BASE_URL, LG_POSTER_SIZE } from "../../config";
 
-const Home = ({ data }) => {
+const Home = () => {
+  const { data } = useQuery("movies", () => getMovies("popular", 1));
+
   return (
     <>
-      {data.results.map((movie) => (
-        <Box key={movie.title}>
+      {data?.results.map((movie) => (
+        <Box d="flex" key={movie.title}>
           <NextImage
             src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${movie.poster_path}`}
             width="342"
@@ -22,8 +26,12 @@ const Home = ({ data }) => {
 };
 
 export const getStaticProps = async () => {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery("movies", () => getMovies("popular", 1));
+
   return {
-    props: { data: await getPopularMovies(1) },
+    props: { dehydratedState: dehydrate(queryClient) },
     revalidate: 1,
   };
 };
