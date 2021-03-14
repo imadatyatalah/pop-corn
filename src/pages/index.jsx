@@ -1,26 +1,29 @@
 import { QueryClient, useQuery } from "react-query";
 import { dehydrate } from "react-query/hydration";
 import { Box } from "@chakra-ui/react";
-import NextImage from "next/image";
 
 import { getMovies } from "../lib/movies";
 import { IMAGE_BASE_URL, LG_POSTER_SIZE } from "../../config";
+import { StyledNextImage } from "../styles/card";
+import CardsContainer from "../components/UI/cardsContainer";
 
 const Home = () => {
   const { data } = useQuery("movies", () => getMovies("popular", 1));
 
   return (
     <>
-      {data?.results.map((movie) => (
-        <Box d="flex" key={movie.title}>
-          <NextImage
-            src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${movie.poster_path}`}
-            width="342"
-            height="513"
-            alt={movie.title}
-          />
-        </Box>
-      ))}
+      <CardsContainer>
+        {data?.results.map((movie) => (
+          <Box d="flex" rounded="md" key={movie.title}>
+            <StyledNextImage
+              src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${movie.poster_path}`}
+              width="256"
+              height="384"
+              alt={movie.title}
+            />
+          </Box>
+        ))}
+      </CardsContainer>
     </>
   );
 };
