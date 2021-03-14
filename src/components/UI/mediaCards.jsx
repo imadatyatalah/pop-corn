@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import PropTypes from "prop-types";
 
 import { IMAGE_BASE_URL, LG_POSTER_SIZE } from "../../../config";
-import { StyledNextImage } from "../../styles/card";
+import { StyledNextImage } from "../../styles";
 import CardsContainer from "./cardsContainer";
 
 export const MediaCards = ({ data, mediaType }) => {
