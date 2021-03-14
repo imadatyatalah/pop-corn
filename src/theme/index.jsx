@@ -1,6 +1,9 @@
 import { extendTheme } from "@chakra-ui/react";
 
-import { fonts } from "./fonts";
+const fonts = {
+  heading: "Poppins, -apple-system",
+  body: "Poppins, -apple-system",
+};
 
 export const theme = extendTheme({
   fonts,
