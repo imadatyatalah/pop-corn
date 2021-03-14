@@ -13,6 +13,7 @@
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "@fontsource/poppins": "^4.2.2",
+    "dayjs": "^1.10.4",
     "framer-motion": "^3.10.3",
     "next": "10.0.8",
     "next-seo": "^4.20.0",
