@@ -1,5 +1,6 @@
 import { Box, Heading, List, ListItem } from "@chakra-ui/react";
 import dayjs from "dayjs";
+import PropTypes from "prop-types";
 
 import { convertMinutesToHours } from "../helpers/convertMinutesToHours";
 import { TagLine, Title, InfoCardStyles } from "../../styles";
@@ -52,6 +53,10 @@ const InfoCard = ({ data }) => {
       </Box>
     </>
   );
+};
+
+InfoCard.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default InfoCard;

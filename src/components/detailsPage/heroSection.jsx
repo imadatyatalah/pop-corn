@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/react";
+import PropTypes from "prop-types";
 
 import { IMAGE_BASE_URL, LG_POSTER_SIZE } from "../../../config";
 import { StyledNextImage } from "../../styles";
@@ -29,6 +30,10 @@ const DetailsPage = ({ data }) => {
       </Backdrop>
     </>
   );
+};
+
+DetailsPage.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default DetailsPage;

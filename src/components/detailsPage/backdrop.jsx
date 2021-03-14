@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/react";
+import PropTypes from "prop-types";
 
 import { IMAGE_BASE_URL, MAX_WIDTH, MD_BACKDROP_SIZE } from "../../../config";
 
@@ -20,6 +21,11 @@ const Backdrop = ({ backdropPath, children }) => {
       </Box>
     </>
   );
+};
+
+Backdrop.propTypes = {
+  backdropPath: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Backdrop;
