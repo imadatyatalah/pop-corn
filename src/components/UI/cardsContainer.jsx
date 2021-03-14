@@ -10,7 +10,7 @@ const CardsContainer = ({ children }) => {
         as="section"
         d="flex"
         justifyContent="center"
-        px={[5, 7.5, 10, 15, 20]}
+        px={[4, 8, 12, 16, 20]}
         maxW={MAX_WIDTH}
         mx="auto"
       >
