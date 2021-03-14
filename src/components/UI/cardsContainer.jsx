@@ -1,5 +1,7 @@
 import { Box, Grid } from "@chakra-ui/react";
 
+import { MAX_WIDTH } from "../../../config";
+
 const CardsContainer = ({ children }) => {
   return (
     <>
@@ -8,6 +10,8 @@ const CardsContainer = ({ children }) => {
         d="flex"
         justifyContent="center"
         px={[5, 7.5, 10, 15, 20]}
+        maxW={MAX_WIDTH}
+        mx="auto"
       >
         <Grid
           templateColumns={{
