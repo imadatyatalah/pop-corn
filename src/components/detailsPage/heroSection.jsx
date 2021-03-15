@@ -11,7 +11,7 @@ const DetailsPage = ({ data, backBtnPath }) => {
   return (
     <>
       <Backdrop backdropPath={data.backdrop_path}>
-        <Button colorScheme="facebook" mt="4">
+        <Button colorScheme="facebook" mt={{ base: "3rem", lg: "2rem" }}>
           <NextLink href={backBtnPath || "/"} passHref>
             <chakra.a px="4">Back</chakra.a>
           </NextLink>
