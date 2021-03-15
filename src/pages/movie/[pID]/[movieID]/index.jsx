@@ -15,7 +15,7 @@ const Movie = () => {
 
   return (
     <>
-      <HeroSection data={data} />
+      <HeroSection data={data} backBtnPath="/movie/popular" />
     </>
   );
 };

@@ -1,15 +1,22 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Button, chakra } from "@chakra-ui/react";
 import PropTypes from "prop-types";
+import NextLink from "next/link";
 
 import { IMAGE_BASE_URL, LG_POSTER_SIZE } from "../../../config";
 import { StyledNextImage } from "../../styles";
 import Backdrop from "./backdrop";
 import InfoCard from "./infoCard";
 
-const DetailsPage = ({ data }) => {
+const DetailsPage = ({ data, backBtnPath }) => {
   return (
     <>
       <Backdrop backdropPath={data.backdrop_path}>
+        <Button colorScheme="facebook" mt="4">
+          <NextLink href={backBtnPath || "/"} passHref>
+            <chakra.a px="4">Back</chakra.a>
+          </NextLink>
+        </Button>
+
         <Box
           d="flex"
           justifyContent={{ base: "center", lg: "flex-start" }}
@@ -34,6 +41,7 @@ const DetailsPage = ({ data }) => {
 
 DetailsPage.propTypes = {
   data: PropTypes.object.isRequired,
+  backBtnPath: PropTypes.string.isRequired,
 };
 
 export default DetailsPage;
