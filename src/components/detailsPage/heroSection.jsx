@@ -11,11 +11,17 @@ const DetailsPage = ({ data, backBtnPath }) => {
   return (
     <>
       <Backdrop backdropPath={data.backdrop_path}>
-        <Button colorScheme="facebook" mt={{ base: "3rem", lg: "2rem" }}>
-          <NextLink href={backBtnPath || "/"} passHref>
-            <chakra.a px="4">Back</chakra.a>
-          </NextLink>
-        </Button>
+        <NextLink href={backBtnPath}>
+          <a>
+            <Button
+              px="8"
+              colorScheme="facebook"
+              mt={{ base: "3rem", lg: "2rem" }}
+            >
+              Back
+            </Button>
+          </a>
+        </NextLink>
 
         <Box
           d="flex"
@@ -44,6 +50,10 @@ const DetailsPage = ({ data, backBtnPath }) => {
       </Backdrop>
     </>
   );
+};
+
+DetailsPage.defaultProps = {
+  backBtnPath: "/",
 };
 
 DetailsPage.propTypes = {
