@@ -23,14 +23,20 @@ const DetailsPage = ({ data, backBtnPath }) => {
           flexDir={{ base: "column", lg: "row" }}
           py={{ base: "3rem", lg: "2rem" }}
         >
-          <Box d="flex" alignSelf="center" shadow="2xl" bgColor="gray.500">
+          <Box
+            d="flex"
+            rounded="md"
+            alignSelf="center"
+            shadow="2xl"
+            bgColor="gray.500"
+          >
             <StyledNextImage
               src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${data.poster_path}`}
               width="342"
               height="513"
               alt={data.title}
               layout="fixed"
-              quality="50"
+              quality="60"
             />
           </Box>
           <InfoCard data={data} />
