@@ -15,7 +15,7 @@ const PID = () => {
 
   return (
     <>
-      <MoviesCards data={data} mediaType="movie" />
+      <MoviesCards data={data} mediaType="movie" pID={query.pID} />
     </>
   );
 };

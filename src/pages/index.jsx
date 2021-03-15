@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <>
-      <MoviesCards data={data} mediaType="movie" />
+      <MoviesCards data={data} mediaType="movie" pID="popular" />
     </>
   );
 };

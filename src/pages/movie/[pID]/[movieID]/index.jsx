@@ -15,7 +15,7 @@ const Movie = () => {
 
   return (
     <>
-      <HeroSection data={data} backBtnPath="/movie/popular" />
+      <HeroSection data={data} backBtnPath={`/movie/${query.pID}`} />
     </>
   );
 };

@@ -6,7 +6,7 @@ import { IMAGE_BASE_URL, LG_POSTER_SIZE } from "../../../config";
 import { StyledNextImage } from "../../styles";
 import CardsContainer from "./cardsContainer";
 
-export const MediaCards = ({ data, mediaType }) => {
+export const MediaCards = ({ data, mediaType, pID }) => {
   return (
     <>
       <CardsContainer>
@@ -15,7 +15,7 @@ export const MediaCards = ({ data, mediaType }) => {
 
           return (
             <Box key={id}>
-              <NextLink href={`/${mediaType}/popular/${id}`} passHref>
+              <NextLink href={`/${mediaType}/${pID}/${id}`} passHref>
                 <chakra.a
                   d="flex"
                   bgColor="gray.500"
@@ -42,7 +42,12 @@ export const MediaCards = ({ data, mediaType }) => {
   );
 };
 
+MediaCards.defaultProps = {
+  pID: "popular",
+};
+
 MediaCards.propTypes = {
   data: PropTypes.object.isRequired,
   mediaType: PropTypes.string.isRequired,
+  pID: PropTypes.string,
 };
