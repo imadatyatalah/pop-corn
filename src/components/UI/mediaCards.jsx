@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, chakra } from "@chakra-ui/react";
 import NextLink from "next/link";
 import PropTypes from "prop-types";
 
@@ -11,16 +11,16 @@ export const MediaCards = ({ data, mediaType }) => {
     <>
       <CardsContainer>
         {data.results.map((media) => (
-          <Box d="flex" rounded="md" key={media.id}>
-            <NextLink href={`/${mediaType}/popular/${media.id}`}>
-              <a>
+          <Box key={media.id}>
+            <NextLink href={`/${mediaType}/popular/${media.id}`} passHref>
+              <chakra.a d="flex" rounded="md" bgColor="gray.500">
                 <StyledNextImage
                   src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${media.poster_path}`}
                   width="342"
                   height="513"
                   alt={media.title}
                 />
-              </a>
+              </chakra.a>
             </NextLink>
           </Box>
         ))}
