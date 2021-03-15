@@ -30,6 +30,7 @@ const DetailsPage = ({ data, backBtnPath }) => {
               height="513"
               alt={data.title}
               layout="fixed"
+              quality="50"
             />
           </Box>
           <InfoCard data={data} />

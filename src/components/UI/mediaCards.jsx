@@ -10,20 +10,26 @@ export const MediaCards = ({ data, mediaType }) => {
   return (
     <>
       <CardsContainer>
-        {data.results.map((media) => (
-          <Box key={media.id}>
-            <NextLink href={`/${mediaType}/popular/${media.id}`} passHref>
-              <chakra.a d="flex" rounded="md" bgColor="gray.500">
-                <StyledNextImage
-                  src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${media.poster_path}`}
-                  width="342"
-                  height="513"
-                  alt={media.title}
-                />
-              </chakra.a>
-            </NextLink>
-          </Box>
-        ))}
+        {data.results.map((media) => {
+          const { id, poster_path, title } = media;
+
+          return (
+            <Box key={id}>
+              <NextLink href={`/${mediaType}/popular/${id}`} passHref>
+                <chakra.a d="flex" rounded="md" bgColor="gray.500">
+                  <StyledNextImage
+                    src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${poster_path}`}
+                    width="342"
+                    height="513"
+                    alt={title}
+                    title={title}
+                    quality="50"
+                  />
+                </chakra.a>
+              </NextLink>
+            </Box>
+          );
+        })}
       </CardsContainer>
     </>
   );
