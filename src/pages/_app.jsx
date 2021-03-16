@@ -12,24 +12,23 @@ import "@fontsource/poppins/latin-500.css";
 import "@fontsource/poppins/latin-600.css";
 import "@fontsource/poppins/latin-700.css";
 
-const queryClient = new QueryClient();
-
 const MyApp = ({ Component, pageProps }) => {
   const queryClientRef = useRef();
+
   if (!queryClientRef.current) {
     queryClientRef.current = new QueryClient();
   }
 
   return (
     <>
-      <ChakraProvider theme={theme}>
-        <QueryClientProvider client={queryClient}>
-          <Hydrate state={pageProps.dehydratedState}>
+      <QueryClientProvider client={queryClientRef.current}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <ChakraProvider theme={theme}>
             <Component {...pageProps} />
-          </Hydrate>
-          <ReactQueryDevtools />
-        </QueryClientProvider>
-      </ChakraProvider>
+          </ChakraProvider>
+        </Hydrate>
+        <ReactQueryDevtools />
+      </QueryClientProvider>
     </>
   );
 };
