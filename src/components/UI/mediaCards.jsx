@@ -11,7 +11,7 @@ export const MediaCards = ({ data, mediaType, pID }) => {
     <>
       <CardsContainer>
         {data?.results.map((media) => {
-          const { id, poster_path, title } = media;
+          const { id, poster_path, title, name } = media;
 
           return (
             <Box key={id}>
@@ -28,8 +28,8 @@ export const MediaCards = ({ data, mediaType, pID }) => {
                     src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${poster_path}`}
                     width="342"
                     height="513"
-                    alt={title}
-                    title={title}
+                    alt={title || name}
+                    title={title || name}
                     quality="60"
                   />
                 </chakra.a>

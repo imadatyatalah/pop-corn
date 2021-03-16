@@ -6,6 +6,18 @@ import { convertMinutesToHours } from "../helpers/convertMinutesToHours";
 import { TagLine, Title, InfoCardStyles } from "../../styles";
 
 const InfoCard = ({ data }) => {
+  const {
+    title,
+    name,
+    genres,
+    release_date,
+    first_air_date,
+    tagline,
+    overview,
+    spoken_languages,
+    runtime,
+  } = data;
+
   return (
     <>
       <Box
@@ -19,36 +31,36 @@ const InfoCard = ({ data }) => {
         css={InfoCardStyles}
       >
         <Heading as="h1" fontWeight="600">
-          {data.title}
+          {title || name}
         </Heading>
 
         <List py="1">
-          <ListItem>
-            {data.genres?.map((genre) => genre.name).join(", ")}
-          </ListItem>
+          <ListItem>{genres?.map((genre) => genre.name).join(", ")}</ListItem>
 
           <ListItem>
-            {dayjs(data.release_date).format("MMMM DD, YYYY")}
+            {dayjs(release_date || first_air_date).format("MMMM DD, YYYY")}
           </ListItem>
         </List>
 
-        <TagLine>{data.tagline}</TagLine>
+        <TagLine>{tagline}</TagLine>
 
         <List py="1">
           <ListItem py="px">
             <Title>Overview: </Title>
-            {data.overview}
+            {overview}
           </ListItem>
 
           <ListItem py="px">
             <Title>Spoken language: </Title>
-            {data.spoken_languages?.map((lang) => lang.english_name).join(", ")}
+            {spoken_languages?.map((lang) => lang.english_name).join(", ")}
           </ListItem>
 
-          <ListItem py="px">
-            <Title>Runtime: </Title>
-            {convertMinutesToHours(data.runtime)}
-          </ListItem>
+          {runtime && (
+            <ListItem py="px">
+              <Title>Runtime: </Title>
+              {convertMinutesToHours(runtime)}
+            </ListItem>
+          )}
         </List>
       </Box>
     </>
