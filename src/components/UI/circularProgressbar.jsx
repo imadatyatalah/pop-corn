@@ -1,4 +1,5 @@
 import { Box, CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
+import PropTypes from "prop-types";
 
 const pathColor = (value) => {
   if (value > 0 && value < 33.33) {
@@ -13,7 +14,7 @@ const pathColor = (value) => {
   }
 };
 
-const CircularProgressbar = ({ value, size, fontSize, ...props }) => {
+const CircularProgressbar = ({ value, ...props }) => {
   const result = Math.round((value * 100) / 10);
 
   return (
@@ -21,7 +22,6 @@ const CircularProgressbar = ({ value, size, fontSize, ...props }) => {
       <Box {...props}>
         <CircularProgress
           aria-label={`vote average: ${result}%`}
-          size={size}
           max="10"
           bgColor="#27272A"
           rounded="full"
@@ -31,17 +31,17 @@ const CircularProgressbar = ({ value, size, fontSize, ...props }) => {
           trackColor="#4e4e69"
           color={pathColor(result)}
         >
-          <CircularProgressLabel
-            color="white"
-            fontSize={fontSize}
-            fontWeight="600"
-          >
+          <CircularProgressLabel color="white" fontSize="12px" fontWeight="600">
             {value !== 0 ? `${result}%` : "NR"}
           </CircularProgressLabel>
         </CircularProgress>
       </Box>
     </>
   );
+};
+
+CircularProgressbar.prototypes = {
+  value: PropTypes.number.isRequired,
 };
 
 export default CircularProgressbar;
