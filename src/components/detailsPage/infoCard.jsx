@@ -48,7 +48,7 @@ const InfoCard = ({ data }) => {
               </ListItem>
             </List>
 
-            <TagLine>{tagline}</TagLine>
+            {tagline && <TagLine>{tagline}</TagLine>}
           </Box>
 
           <CircularProgressbar value={vote_average} />
