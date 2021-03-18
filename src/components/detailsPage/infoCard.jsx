@@ -1,9 +1,10 @@
-import { Box, Heading, List, ListItem } from "@chakra-ui/react";
+import { Box, Flex, Heading, List, ListItem } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import PropTypes from "prop-types";
 
 import { convertMinutesToHours } from "../helpers/convertMinutesToHours";
 import { TagLine, Title, InfoCardStyles } from "../../styles";
+import CircularProgressbar from "../UI/circularProgressbar";
 
 const InfoCard = ({ data }) => {
   const {
@@ -16,6 +17,7 @@ const InfoCard = ({ data }) => {
     overview,
     spoken_languages,
     runtime,
+    vote_average,
   } = data;
 
   return (
@@ -30,19 +32,27 @@ const InfoCard = ({ data }) => {
         ml={{ lg: "1.25rem" }}
         css={InfoCardStyles}
       >
-        <Heading as="h1" fontWeight="600">
-          {title || name}
-        </Heading>
+        <Flex justify="space-between">
+          <Box>
+            <Heading as="h1" fontWeight="600">
+              {title || name}
+            </Heading>
 
-        <List py="1">
-          <ListItem>{genres?.map((genre) => genre.name).join(", ")}</ListItem>
+            <List py="1">
+              <ListItem>
+                {genres?.map((genre) => genre.name).join(", ")}
+              </ListItem>
 
-          <ListItem>
-            {dayjs(release_date || first_air_date).format("MMMM DD, YYYY")}
-          </ListItem>
-        </List>
+              <ListItem>
+                {dayjs(release_date || first_air_date).format("MMMM DD, YYYY")}
+              </ListItem>
+            </List>
 
-        <TagLine>{tagline}</TagLine>
+            <TagLine>{tagline}</TagLine>
+          </Box>
+
+          <CircularProgressbar value={vote_average} />
+        </Flex>
 
         <List py="1">
           <ListItem py="px">
