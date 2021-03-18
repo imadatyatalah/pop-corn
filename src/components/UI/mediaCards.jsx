@@ -41,7 +41,6 @@ export const MediaCards = ({ data, mediaType, pID }) => {
                 pos="absolute"
                 right="2"
                 top="2"
-                size="12"
               />
             </Box>
           );
