@@ -5,16 +5,17 @@ import PropTypes from "prop-types";
 import { IMAGE_BASE_URL, LG_POSTER_SIZE } from "../../../config";
 import { StyledNextImage } from "../../styles";
 import CardsContainer from "./cardsContainer";
+import CircularProgressbar from "../UI/circularProgressbar";
 
 export const MediaCards = ({ data, mediaType, pID }) => {
   return (
     <>
       <CardsContainer>
         {data?.results.map((media) => {
-          const { id, poster_path, title, name } = media;
+          const { id, poster_path, title, name, vote_average } = media;
 
           return (
-            <Box key={id}>
+            <Box pos="relative" key={id}>
               <NextLink href={`/${mediaType}/${pID}/${id}`} passHref>
                 <chakra.a
                   d="flex"
@@ -34,6 +35,14 @@ export const MediaCards = ({ data, mediaType, pID }) => {
                   />
                 </chakra.a>
               </NextLink>
+
+              <CircularProgressbar
+                value={vote_average}
+                pos="absolute"
+                right="2"
+                top="2"
+                size="12"
+              />
             </Box>
           );
         })}
