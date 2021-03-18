@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import { IMAGE_BASE_URL, LG_POSTER_SIZE } from "../../../config";
 import { StyledNextImage } from "../../styles";
+import { PosterFallBack } from "./fallBack";
 import CardsContainer from "./cardsContainer";
 import CircularProgressbar from "../UI/circularProgressbar";
 
@@ -25,14 +26,18 @@ export const MediaCards = ({ data, mediaType, pID }) => {
                   transitionDuration="250ms"
                   _hover={{ shadow: "xl" }}
                 >
-                  <StyledNextImage
-                    src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${poster_path}`}
-                    width="342"
-                    height="513"
-                    alt={title || name}
-                    title={title || name}
-                    quality="60"
-                  />
+                  {poster_path ? (
+                    <StyledNextImage
+                      src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${poster_path}`}
+                      width="342"
+                      height="513"
+                      alt={title || name}
+                      title={title || name}
+                      quality="60"
+                    />
+                  ) : (
+                    <PosterFallBack />
+                  )}
                 </chakra.a>
               </NextLink>
 
