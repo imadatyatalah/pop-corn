@@ -1,3 +1,8 @@
+export default {
+  title: "Pop Corn",
+  canonical: "https://pop-corn.vercel.app/",
+};
+
 export const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
