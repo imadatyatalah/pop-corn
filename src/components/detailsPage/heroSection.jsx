@@ -50,7 +50,7 @@ const DetailsPage = ({ data, backBtnPath }) => {
                 quality="60"
               />
             ) : (
-              <PosterFallBack />
+              <PosterFallBack layout="fixed" />
             )}
           </Box>
 
