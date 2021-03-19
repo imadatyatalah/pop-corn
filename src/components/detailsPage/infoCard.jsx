@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import PropTypes from "prop-types";
 
 import { convertMinutesToHours } from "../helpers/convertMinutesToHours";
+import { calculateAge } from "../helpers/calculateAge";
 import { TagLine, Title, InfoCardStyles } from "../../styles";
 import CircularProgressbar from "../UI/circularProgressbar";
 
@@ -85,6 +86,59 @@ export const MediaInfoCard = ({ data }) => {
   );
 };
 
+export const PersonInfoCard = ({ data }) => {
+  const {
+    name,
+    birthday,
+    biography,
+    place_of_birth,
+    known_for_department,
+  } = data;
+
+  return (
+    <>
+      <Container>
+        <Flex justify="space-between">
+          <Box>
+            <Heading as="h1" fontWeight="600">
+              {name}
+            </Heading>
+
+            <List py="1">
+              <ListItem>
+                <Title>Birthday: </Title>
+                {dayjs(birthday).format("MMMM DD, YYYY")},{" "}
+                {`${calculateAge(birthday)} years old`}
+              </ListItem>
+
+              <ListItem>
+                <Title>Place of Birth: </Title>
+                {place_of_birth}
+              </ListItem>
+
+              <ListItem>
+                <Title>Known For: </Title>
+                {known_for_department}
+              </ListItem>
+            </List>
+          </Box>
+        </Flex>
+
+        <List py="1">
+          <ListItem py="px">
+            <Title>Biography: </Title>
+            {biography}
+          </ListItem>
+        </List>
+      </Container>
+    </>
+  );
+};
+
 MediaInfoCard.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+PersonInfoCard.propTypes = {
   data: PropTypes.object.isRequired,
 };
