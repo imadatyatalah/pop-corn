@@ -21,10 +21,7 @@ const PID = () => {
 };
 
 export const getStaticPaths = async () => {
-  return {
-    paths: [{ params: { pID: "popular" } }],
-    fallback: false,
-  };
+  return { paths: [{ params: { pID: "popular" } }], fallback: false };
 };
 
 export const getStaticProps = async ({ params }) => {

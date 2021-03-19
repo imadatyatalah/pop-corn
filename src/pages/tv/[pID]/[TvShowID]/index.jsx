@@ -2,8 +2,8 @@ import { QueryClient, useQuery } from "react-query";
 import { dehydrate } from "react-query/hydration";
 import { useRouter } from "next/router";
 
+import { MediaDetailsPage as HeroSection } from "../../../../components/detailsPage/heroSection";
 import { getTvShowDetails } from "../../../../lib/tvShows";
-import HeroSection from "../../../../components/detailsPage/heroSection";
 
 const TvShow = () => {
   const router = useRouter();
@@ -24,9 +24,9 @@ const TvShow = () => {
   );
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   return { paths: [], fallback: true };
-}
+};
 
 export const getStaticProps = async ({ params }) => {
   const queryClient = new QueryClient();
