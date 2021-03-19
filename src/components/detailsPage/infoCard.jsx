@@ -6,7 +6,24 @@ import { convertMinutesToHours } from "../helpers/convertMinutesToHours";
 import { TagLine, Title, InfoCardStyles } from "../../styles";
 import CircularProgressbar from "../UI/circularProgressbar";
 
-const InfoCard = ({ data }) => {
+const Container = ({ children }) => (
+  <>
+    <Box
+      w="full"
+      color="black"
+      rounded="xl"
+      py="0.5rem"
+      px="1rem"
+      mt={{ base: "1rem", lg: "0" }}
+      ml={{ lg: "1.25rem" }}
+      css={InfoCardStyles}
+    >
+      {children}
+    </Box>
+  </>
+);
+
+export const MediaInfoCard = ({ data }) => {
   const {
     title,
     name,
@@ -22,16 +39,7 @@ const InfoCard = ({ data }) => {
 
   return (
     <>
-      <Box
-        w="full"
-        color="black"
-        rounded="xl"
-        py="0.5rem"
-        px="1rem"
-        mt={{ base: "1rem", lg: "0" }}
-        ml={{ lg: "1.25rem" }}
-        css={InfoCardStyles}
-      >
+      <Container>
         <Flex justify="space-between">
           <Box>
             <Heading as="h1" fontWeight="600">
@@ -72,13 +80,11 @@ const InfoCard = ({ data }) => {
             </ListItem>
           )}
         </List>
-      </Box>
+      </Container>
     </>
   );
 };
 
-InfoCard.propTypes = {
+MediaInfoCard.propTypes = {
   data: PropTypes.object.isRequired,
 };
-
-export default InfoCard;
