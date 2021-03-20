@@ -76,8 +76,8 @@ export const PeopleCards = ({ data, pID }) => {
                   {profile_path ? (
                     <StyledNextImage
                       src={`${IMAGE_BASE_URL}${MD_STILL_SIZE}${profile_path}`}
-                      width="300"
-                      height="450"
+                      width="342"
+                      height="513"
                       alt={name}
                       title={name}
                       quality="60"
