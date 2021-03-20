@@ -11,3 +11,9 @@ export const getPersonDetails = async (personID) => {
     `${BASE_URL}person/${personID}?api_key=${API_KEY}&language=en-US`
   );
 };
+
+export const getCombinedCredits = async (personID) => {
+  return await fetcher(
+    `${BASE_URL}person/${personID}/combined_credits?api_key=${API_KEY}&language=en-US`
+  );
+};
