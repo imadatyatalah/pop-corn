@@ -90,6 +90,7 @@ export const PersonInfoCard = ({ data }) => {
   const {
     name,
     birthday,
+    deathday,
     biography,
     place_of_birth,
     known_for_department,
@@ -115,6 +116,13 @@ export const PersonInfoCard = ({ data }) => {
                 <Title>Place of Birth: </Title>
                 {place_of_birth}
               </ListItem>
+
+              {deathday && (
+                <ListItem>
+                  <Title>Deathday: </Title>
+                  {deathday}
+                </ListItem>
+              )}
 
               <ListItem>
                 <Title>Known For: </Title>
