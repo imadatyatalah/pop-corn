@@ -15,7 +15,6 @@ const Backdrop = ({ backdropPath, children }) => {
         maxW={MAX_WIDTH}
         mx="auto"
         px={[4, 8, 12, 16, 20]}
-        minH="100vh"
       >
         {children}
       </Box>
