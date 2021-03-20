@@ -61,12 +61,12 @@ export const MediaDetailsPage = ({ data, backBtnPath }) => {
   );
 };
 
-export const PersonDetailsPage = ({ data, backBtnPath }) => {
-  const { backdrop_path, profile_path, name } = data;
+export const PersonDetailsPage = ({ data, backdropPath, backBtnPath }) => {
+  const { profile_path, name } = data;
 
   return (
     <>
-      <Backdrop backdropPath={backdrop_path}>
+      <Backdrop backdropPath={backdropPath}>
         <NextLink href={backBtnPath}>
           <a>
             <Button
@@ -130,4 +130,5 @@ PersonDetailsPage.defaultProps = {
 PersonDetailsPage.propTypes = {
   data: PropTypes.object.isRequired,
   backBtnPath: PropTypes.string.isRequired,
+  backdropPath: PropTypes.string,
 };
