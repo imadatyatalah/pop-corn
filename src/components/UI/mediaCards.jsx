@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import PropTypes from "prop-types";
 
 import { IMAGE_BASE_URL, LG_POSTER_SIZE, MD_STILL_SIZE } from "../../../config";
-import { StyledNextImage } from "../../styles";
+import { StyledNextImage } from "@/styles/index";
 import { PosterFallBack, ProfileFallBack } from "./fallBack";
 import CardsContainer from "./cardsContainer";
 import CircularProgressbar from "../UI/circularProgressbar";

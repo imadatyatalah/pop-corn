@@ -3,8 +3,8 @@ import { dehydrate } from "react-query/hydration";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 
-import { getPeople } from "../../../lib/people";
-import { PeopleCards } from "../../../components/UI/mediaCards";
+import { getPeople } from "@/lib/people";
+import { PeopleCards } from "@/components/UI/mediaCards";
 import config from "../../../../config";
 
 const getPageTitle = (pID) => {

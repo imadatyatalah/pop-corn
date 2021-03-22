@@ -3,8 +3,8 @@ import { dehydrate } from "react-query/hydration";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 
-import { MediaDetailsPage as HeroSection } from "../../../../components/detailsPage/heroSection";
-import { getTvShowDetails } from "../../../../lib/tvShows";
+import { MediaDetailsPage as HeroSection } from "@/components/detailsPage/heroSection";
+import { getTvShowDetails } from "@/lib/tvShows";
 import config, {
   IMAGE_BASE_URL,
   LG_POSTER_SIZE,

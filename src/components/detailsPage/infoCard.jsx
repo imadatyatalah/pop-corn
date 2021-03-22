@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { convertMinutesToHours } from "../helpers/convertMinutesToHours";
 import { calculateAge } from "../helpers/calculateAge";
-import { TagLine, Title, InfoCardStyles } from "../../styles";
+import { TagLine, Title, InfoCardStyles } from "@/styles/index";
 import CircularProgressbar from "../UI/circularProgressbar";
 
 const Container = ({ children }) => (
@@ -141,6 +141,10 @@ export const PersonInfoCard = ({ data }) => {
       </Container>
     </>
   );
+};
+
+Container.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 MediaInfoCard.propTypes = {

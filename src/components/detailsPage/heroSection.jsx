@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import NextLink from "next/link";
 
 import { IMAGE_BASE_URL, LG_POSTER_SIZE, MD_STILL_SIZE } from "../../../config";
-import { StyledNextImage } from "../../styles";
+import { StyledNextImage } from "@/styles/index";
 import { PosterFallBack, ProfileFallBack } from "../UI/fallBack";
-import Backdrop from "./backdrop";
 import { MediaInfoCard, PersonInfoCard } from "./infoCard";
+import Backdrop from "./backdrop";
 
 export const MediaDetailsPage = ({ data, backBtnPath }) => {
   const { backdrop_path, poster_path, title, name } = data;

@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { Hydrate } from "react-query/hydration";
 import { DefaultSeo } from "next-seo";
 
-import { theme } from "../theme";
+import { theme } from "@/theme/index";
 import SEO from "../../next-seo.config";
 
 import "@fontsource/poppins/latin-300.css";

@@ -3,8 +3,8 @@ import { dehydrate } from "react-query/hydration";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 
-import { PersonDetailsPage as HeroSection } from "../../../../components/detailsPage/heroSection";
-import { getCombinedCredits, getPersonDetails } from "../../../../lib/people";
+import { PersonDetailsPage as HeroSection } from "@/components/detailsPage/heroSection";
+import { getCombinedCredits, getPersonDetails } from "@/lib/people";
 import config, { IMAGE_BASE_URL, MD_STILL_SIZE } from "../../../../../config";
 
 const Person = () => {
