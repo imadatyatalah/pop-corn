@@ -41,7 +41,7 @@ const PID = () => {
         openGraph={{ title, description, url }}
       />
 
-      <TvShowsCards data={data} mediaType="tv" pID={query.pID} />
+      <TvShowsCards data={data.results} mediaType="tv" pID={query.pID} />
     </>
   );
 };

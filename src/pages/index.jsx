@@ -21,7 +21,7 @@ const Home = () => {
         openGraph={{ title, description }}
       />
 
-      <MoviesCards data={data} mediaType="movie" pID="popular" />
+      <MoviesCards data={data.results} mediaType="movie" pID="popular" />
     </>
   );
 };

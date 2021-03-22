@@ -12,12 +12,22 @@ export const MediaCards = ({ data, mediaType, pID }) => {
   return (
     <>
       <CardsContainer>
-        {data?.results.map((media) => {
-          const { id, poster_path, title, name, vote_average } = media;
+        {data?.map((media) => {
+          const {
+            id,
+            poster_path,
+            title,
+            name,
+            vote_average,
+            media_type,
+          } = media;
 
           return (
             <Box pos="relative" key={id}>
-              <NextLink href={`/${mediaType}/${pID}/${id}`} passHref>
+              <NextLink
+                href={`/${mediaType || media_type}/${pID}/${id}`}
+                passHref
+              >
                 <chakra.a
                   d="flex"
                   bgColor="gray.500"

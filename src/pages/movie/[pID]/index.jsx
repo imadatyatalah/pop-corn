@@ -41,7 +41,7 @@ const PID = () => {
         openGraph={{ title, description, url }}
       />
 
-      <MoviesCards data={data} mediaType="movie" pID={query.pID} />
+      <MoviesCards data={data.results} mediaType="movie" pID={query.pID} />
     </>
   );
 };
