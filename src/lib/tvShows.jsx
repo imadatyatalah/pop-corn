@@ -1,4 +1,4 @@
-import { fetcher, API_KEY, BASE_URL } from "../../config";
+import { fetcher, API_KEY, BASE_URL } from "config";
 
 export const getTvShows = async (type, page) => {
   return await fetcher(

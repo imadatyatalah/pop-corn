@@ -9,7 +9,7 @@ import config, {
   IMAGE_BASE_URL,
   LG_POSTER_SIZE,
   MD_BACKDROP_SIZE,
-} from "../../../../../config";
+} from "config";
 
 const TvShow = () => {
   const router = useRouter();

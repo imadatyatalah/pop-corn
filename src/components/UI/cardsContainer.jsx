@@ -1,7 +1,7 @@
 import { Box, Grid } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 
-import { MAX_WIDTH } from "../../../config";
+import { MAX_WIDTH } from "config";
 
 const CardsContainer = ({ children }) => {
   return (

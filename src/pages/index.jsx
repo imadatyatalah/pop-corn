@@ -4,7 +4,7 @@ import { NextSeo } from "next-seo";
 
 import { MediaCards as MoviesCards } from "@/components/UI/mediaCards";
 import { getMovies } from "@/lib/movies";
-import config from "../../config";
+import config from "config";
 
 const Home = () => {
   const { data } = useQuery("movies", () => getMovies("popular", 1));

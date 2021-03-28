@@ -2,7 +2,7 @@ import { Box, Button } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import NextLink from "next/link";
 
-import { IMAGE_BASE_URL, LG_POSTER_SIZE, MD_STILL_SIZE } from "../../../config";
+import { IMAGE_BASE_URL, LG_POSTER_SIZE, MD_STILL_SIZE } from "config";
 import { StyledNextImage } from "@/styles/index";
 import { PosterFallBack, ProfileFallBack } from "../UI/fallBack";
 import { MediaInfoCard, PersonInfoCard } from "./infoCard";

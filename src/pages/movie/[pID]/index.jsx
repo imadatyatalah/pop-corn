@@ -5,7 +5,7 @@ import { NextSeo } from "next-seo";
 
 import { getMovies } from "@/lib/movies";
 import { MediaCards as MoviesCards } from "@/components/UI/mediaCards";
-import config from "../../../../config";
+import config from "config";
 
 const getPageTitle = (pID) => {
   if (pID === "popular") {
