@@ -48,9 +48,7 @@ export const MediaInfoCard = ({ data }) => {
             </Heading>
 
             <List py="1">
-              <ListItem>
-                {genres?.map((genre) => genre.name).join(", ")}
-              </ListItem>
+              <ListItem>{genres?.map(({ name }) => name).join(", ")}</ListItem>
 
               <ListItem>
                 {dayjs(release_date || first_air_date).format("MMMM DD, YYYY")}
@@ -71,7 +69,9 @@ export const MediaInfoCard = ({ data }) => {
 
           <ListItem py="px">
             <Title>Spoken language: </Title>
-            {spoken_languages?.map((lang) => lang.english_name).join(", ")}
+            {spoken_languages
+              ?.map(({ english_name }) => english_name)
+              .join(", ")}
           </ListItem>
 
           {runtime && (
