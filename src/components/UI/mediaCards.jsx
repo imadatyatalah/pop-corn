@@ -35,6 +35,7 @@ export const MediaCards = ({ data, mediaType, pID }) => {
                   shadow="lg"
                   transitionDuration="250ms"
                   _hover={{ shadow: "xl" }}
+                  aria-label={title || name }
                 >
                   {poster_path ? (
                     <StyledNextImage
@@ -82,6 +83,7 @@ export const PeopleCards = ({ data, pID }) => {
                   shadow="lg"
                   transitionDuration="250ms"
                   _hover={{ shadow: "xl" }}
+                  aria-label={name}
                 >
                   {profile_path ? (
                     <StyledNextImage
