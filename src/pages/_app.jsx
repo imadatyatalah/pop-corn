@@ -6,7 +6,7 @@ import { Hydrate } from "react-query/hydration";
 import { DefaultSeo } from "next-seo";
 
 import { theme } from "@/theme/index";
-import SEO from "../../next-seo.config";
+import SEO from "next-seo.config";
 
 import "@fontsource/poppins/latin-300.css";
 import "@fontsource/poppins/latin-400.css";
