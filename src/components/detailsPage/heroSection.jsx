@@ -14,17 +14,13 @@ export const MediaDetailsPage = ({ data, backBtnPath }) => {
   return (
     <>
       <Backdrop backdropPath={backdrop_path}>
-        <NextLink href={backBtnPath}>
-          <a>
-            <Button
-              px="8"
-              colorScheme="facebook"
-              mt={{ base: "3rem", lg: "2rem" }}
-            >
+        <Box pt={{ base: "3rem", lg: "2rem" }}>
+          <NextLink href={backBtnPath} passHref>
+            <Button px="8" colorScheme="facebook">
               Back
             </Button>
-          </a>
-        </NextLink>
+          </NextLink>
+        </Box>
 
         <Box
           d="flex"
@@ -67,17 +63,13 @@ export const PersonDetailsPage = ({ data, backdropPath, backBtnPath }) => {
   return (
     <>
       <Backdrop backdropPath={backdropPath}>
-        <NextLink href={backBtnPath}>
-          <a>
-            <Button
-              px="8"
-              colorScheme="facebook"
-              mt={{ base: "3rem", lg: "2rem" }}
-            >
+        <Box pt={{ base: "3rem", lg: "2rem" }}>
+          <NextLink href={backBtnPath} passHref>
+            <Button px="8" colorScheme="facebook">
               Back
             </Button>
-          </a>
-        </NextLink>
+          </NextLink>
+        </Box>
 
         <Box
           d="flex"
