@@ -2,8 +2,8 @@ import { Box, Flex, Heading, List, ListItem } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import PropTypes from "prop-types";
 
-import { convertMinutesToHours } from "../helpers/convertMinutesToHours";
-import { calculateAge } from "../helpers/calculateAge";
+import { convertMinutesToHours } from "@/lib/convertMinutesToHours";
+import { calculateAge } from "@/lib/calculateAge";
 import { TagLine, Title, InfoCardStyles } from "@/styles/index";
 import CircularProgressbar from "../UI/circularProgressbar";
 
