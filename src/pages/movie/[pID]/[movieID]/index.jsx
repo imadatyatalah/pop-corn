@@ -20,7 +20,7 @@ const Movie = () => {
   );
 
   if (isFallback) {
-    return <div>Please wait a few seconds, It's loading...</div>;
+    return <div>Loading...</div>;
   }
 
   const title = `${data.title} - ${config.title}`;
