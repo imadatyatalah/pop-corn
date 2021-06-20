@@ -5,7 +5,7 @@ import { NextSeo } from "next-seo";
 
 import { PersonDetailsPage as HeroSection } from "@/components/detailsPage/heroSection";
 import { getCombinedCredits, getPersonDetails } from "@/lib/people";
-import config, { IMAGE_BASE_URL, MD_STILL_SIZE } from "../../../../../config";
+import config, { IMAGE_BASE_URL, MD_STILL_SIZE } from "config";
 
 const Person = () => {
   const router = useRouter();
