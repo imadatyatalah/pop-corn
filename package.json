@@ -6,23 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "prettier --write 'src/**/*.jsx'"
+    "prettier:format": "prettier --write .",
+    "prettier:check": "prettier --check ."
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.5.0",
-    "@emotion/react": "^11.1.5",
+    "@chakra-ui/react": "^1.6.4",
+    "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "@fontsource/poppins": "^4.2.2",
-    "dayjs": "^1.10.4",
-    "framer-motion": "^4.1.3",
-    "next": "10.1.3",
-    "next-seo": "^4.23.0",
+    "@fontsource/poppins": "^4.4.5",
+    "dayjs": "^1.10.5",
+    "framer-motion": "^4.1.17",
+    "next": "11.0.0",
+    "next-seo": "^4.26.0",
     "prop-types": "^15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-query": "^3.13.6"
+    "react-query": "^3.17.2"
   },
   "devDependencies": {
-    "prettier": "^2.2.1"
+    "eslint": "^7.29.0",
+    "eslint-config-next": "^11.0.0",
+    "prettier": "^2.3.1"
   }
 }
