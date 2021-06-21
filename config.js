@@ -9,9 +9,6 @@ export const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 
 export const BASE_URL = "https://api.themoviedb.org/3/";
 
-export const APP_URL =
-  process.env.NEXT_PUBLIC_APP_URL || "https://pop-corn.vercel.app/";
-
 export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/";
 
 export const MAX_WIDTH = "1440px";
