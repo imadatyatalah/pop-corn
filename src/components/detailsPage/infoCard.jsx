@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { convertMinutesToHours } from "@/lib/convertMinutesToHours";
 import { calculateAge } from "@/lib/calculateAge";
 import { TagLine, Title, InfoCardStyles } from "@/styles/index";
-import CircularProgressbar from "../UI/circularProgressbar";
+import CircularProgressbar from "@/components/circularProgressbar";
 
 const Container = ({ children }) => (
   <>
