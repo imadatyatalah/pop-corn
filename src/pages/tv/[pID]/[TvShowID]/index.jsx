@@ -66,12 +66,14 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(["TvShowID", params.TvShowID], () =>
-    getTvShowDetails(params.TvShowID)
+  const tvShow = await queryClient.fetchQuery(
+    ["TvShowID", params.TvShowID],
+    () => getTvShowDetails(params.TvShowID)
   );
 
   return {
     props: { dehydratedState: dehydrate(queryClient) },
+    notFound: tvShow.success === false,
     revalidate: 60,
   };
 };

@@ -66,12 +66,13 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(["movieID", params.movieID], () =>
+  const movie = await queryClient.fetchQuery(["movieID", params.movieID], () =>
     getMovieDetails(params.movieID)
   );
 
   return {
     props: { dehydratedState: dehydrate(queryClient) },
+    notFound: movie.success === false,
     revalidate: 60,
   };
 };

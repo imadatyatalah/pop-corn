@@ -71,8 +71,9 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(["personID", params.personID], () =>
-    getPersonDetails(params.personID)
+  const person = await queryClient.fetchQuery(
+    ["personID", params.personID],
+    () => getPersonDetails(params.personID)
   );
   await queryClient.prefetchQuery(
     ["personID", "combinedCredits", params.personID],
@@ -81,6 +82,7 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: { dehydratedState: dehydrate(queryClient) },
+    notFound: person.success === false,
     revalidate: 60,
   };
 };
