@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { IMAGE_BASE_URL, LG_POSTER_SIZE, MD_STILL_SIZE } from "config";
 import { StyledNextImage } from "@/styles/index";
 import { PosterFallBack, ProfileFallBack } from "./fallBack";
-import CardsContainer from "./cardsContainer";
+import CardsContainer from "@/components/cardsContainer";
 import CircularProgressbar from "@/components/circularProgressbar";
 
 export const MediaCards = ({ data, mediaType, pID }) => {
