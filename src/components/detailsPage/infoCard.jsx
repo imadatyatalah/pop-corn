@@ -62,10 +62,12 @@ export const MediaInfoCard = ({ data }) => {
         </Flex>
 
         <List py="1">
-          <ListItem py="px">
-            <Title>Overview: </Title>
-            {overview}
-          </ListItem>
+          {overview && (
+            <ListItem py="px">
+              <Title>Overview: </Title>
+              {overview}
+            </ListItem>
+          )}
 
           <ListItem py="px">
             <Title>Spoken language: </Title>
@@ -106,16 +108,20 @@ export const PersonInfoCard = ({ data }) => {
             </Heading>
 
             <List py="1">
-              <ListItem>
-                <Title>Birthday: </Title>
-                {dayjs(birthday).format("MMMM DD, YYYY")},{" "}
-                {`${calculateAge(birthday)} years old`}
-              </ListItem>
+              {birthday && (
+                <ListItem>
+                  <Title>Birthday: </Title>
+                  {dayjs(birthday).format("MMMM DD, YYYY")},{" "}
+                  {`${calculateAge(birthday)} years old`}
+                </ListItem>
+              )}
 
-              <ListItem>
-                <Title>Place of Birth: </Title>
-                {place_of_birth}
-              </ListItem>
+              {place_of_birth && (
+                <ListItem>
+                  <Title>Place of Birth: </Title>
+                  {place_of_birth}
+                </ListItem>
+              )}
 
               {deathday && (
                 <ListItem>
