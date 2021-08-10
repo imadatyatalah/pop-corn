@@ -9,7 +9,7 @@ import config from "config";
 const Home = () => {
   const { data } = useQuery("movies", () => getMovies("popular", 1));
 
-  const title = `Home - ${config.title}`;
+  const title = "Home";
   const description = "Get the latest Movies, Tv shows, and People.";
 
   return (

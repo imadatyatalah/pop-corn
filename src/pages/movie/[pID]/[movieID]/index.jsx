@@ -23,7 +23,7 @@ const Movie = () => {
     return <div>Loading...</div>;
   }
 
-  const title = `${data.title} - ${config.title}`;
+  const title = data.title;
   const description = data.overview;
   const url = `${config.canonical}movie/${query.pID}/${query.movieID}`;
 

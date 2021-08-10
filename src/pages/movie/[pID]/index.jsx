@@ -27,7 +27,7 @@ const PID = () => {
     getMovies(query.pID, 1)
   );
 
-  const title = `${getPageTitle(query.pID)} Movies - ${config.title}`;
+  const title = `${getPageTitle(query.pID)} Movies`;
   const description =
     "Get the most Popular Movies, Now Playing Movies, Upcoming Movies and also Top Rated Movies!";
   const url = `${config.canonical}movie/${query.pID}`;

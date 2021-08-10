@@ -23,7 +23,7 @@ const Person = () => {
     return <div>Loading...</div>;
   }
 
-  const title = `${data.name} - ${config.title}`;
+  const title = data.name;
   const description = data.biography;
   const url = `${config.canonical}person/${query.pID}/${query.personID}`;
 

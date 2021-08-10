@@ -23,7 +23,7 @@ const TvShow = () => {
     return <div>Loading...</div>;
   }
 
-  const title = `${data.name} - ${config.title}`;
+  const title = data.name;
   const description = data.overview;
   const url = `${config.canonical}tv/${query.pID}/${query.TvShowID}`;
 

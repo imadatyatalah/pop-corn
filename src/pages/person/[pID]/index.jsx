@@ -21,7 +21,7 @@ const PID = () => {
     getPeople(query.pID, 1)
   );
 
-  const title = `${getPageTitle(query.pID)} People - ${config.title}`;
+  const title = `${getPageTitle(query.pID)} People`;
   const description = "Get the most Popular People.";
   const url = `${config.canonical}person/${query.pID}`;
 

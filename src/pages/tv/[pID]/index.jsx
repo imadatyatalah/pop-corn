@@ -27,7 +27,7 @@ const PID = () => {
     getTvShows(query.pID, 1)
   );
 
-  const title = `${getPageTitle(query.pID)} Tv Shows - ${config.title}`;
+  const title = `${getPageTitle(query.pID)} Tv Shows`;
   const description =
     "Get the most Popular Tv Shows, Airing Today Tv Shows, On The Air Tv Shows and also Top Rated Tv Shows!";
   const url = `${config.canonical}tv/${query.pID}`;
