@@ -12,48 +12,46 @@ export const MediaDetailsPage = ({ data, backBtnPath }) => {
   const { backdrop_path, poster_path, title, name } = data;
 
   return (
-    <>
-      <Backdrop backdropPath={backdrop_path}>
-        <Box pt={{ base: "3rem", lg: "2rem" }}>
-          <NextLink href={backBtnPath} passHref>
-            <Button px="8" colorScheme="facebook">
-              Back
-            </Button>
-          </NextLink>
-        </Box>
+    <Backdrop backdropPath={backdrop_path}>
+      <Box pt={{ base: "3rem", lg: "2rem" }}>
+        <NextLink href={backBtnPath} passHref>
+          <Button px="8" colorScheme="facebook">
+            Back
+          </Button>
+        </NextLink>
+      </Box>
 
+      <Box
+        d="flex"
+        justifyContent="center"
+        flexDir={{ base: "column", lg: "row" }}
+        py={{ base: "3rem", lg: "2rem" }}
+      >
         <Box
           d="flex"
-          justifyContent="center"
-          flexDir={{ base: "column", lg: "row" }}
-          py={{ base: "3rem", lg: "2rem" }}
+          rounded="md"
+          alignSelf="center"
+          shadow="2xl"
+          bgColor="gray.500"
+          aria-label={`${title || name} Profile image`}
         >
-          <Box
-            d="flex"
-            rounded="md"
-            alignSelf="center"
-            shadow="2xl"
-            bgColor="gray.500"
-            aria-label={`${title || name} Profile image`}
-          >
-            {poster_path ? (
-              <StyledNextImage
-                src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${poster_path}`}
-                width="342"
-                height="513"
-                alt={title || name}
-                layout="fixed"
-                quality="60"
-              />
-            ) : (
-              <PosterFallBack layout="fixed" />
-            )}
-          </Box>
-
-          <MediaInfoCard data={data} />
+          {poster_path ? (
+            <StyledNextImage
+              src={`${IMAGE_BASE_URL}${LG_POSTER_SIZE}${poster_path}`}
+              width="342"
+              height="513"
+              alt={title || name}
+              layout="fixed"
+              quality="60"
+            />
+          ) : (
+            <PosterFallBack layout="fixed" />
+          )}
         </Box>
-      </Backdrop>
-    </>
+
+        <MediaInfoCard data={data} />
+      </Box>
+    </Backdrop>
   );
 };
 
@@ -61,48 +59,46 @@ export const PersonDetailsPage = ({ data, backdropPath, backBtnPath }) => {
   const { profile_path, name } = data;
 
   return (
-    <>
-      <Backdrop backdropPath={backdropPath}>
-        <Box pt={{ base: "3rem", lg: "2rem" }}>
-          <NextLink href={backBtnPath} passHref>
-            <Button px="8" colorScheme="facebook">
-              Back
-            </Button>
-          </NextLink>
-        </Box>
+    <Backdrop backdropPath={backdropPath}>
+      <Box pt={{ base: "3rem", lg: "2rem" }}>
+        <NextLink href={backBtnPath} passHref>
+          <Button px="8" colorScheme="facebook">
+            Back
+          </Button>
+        </NextLink>
+      </Box>
 
+      <Box
+        d="flex"
+        justifyContent="center"
+        flexDir={{ base: "column", lg: "row" }}
+        py={{ base: "3rem", lg: "2rem" }}
+      >
         <Box
           d="flex"
-          justifyContent="center"
-          flexDir={{ base: "column", lg: "row" }}
-          py={{ base: "3rem", lg: "2rem" }}
+          rounded="md"
+          alignSelf="center"
+          shadow="2xl"
+          bgColor="gray.500"
+          aria-label={`${name} Profile image`}
         >
-          <Box
-            d="flex"
-            rounded="md"
-            alignSelf="center"
-            shadow="2xl"
-            bgColor="gray.500"
-            aria-label={`${name} Profile image`}
-          >
-            {profile_path ? (
-              <StyledNextImage
-                src={`${IMAGE_BASE_URL}${MD_STILL_SIZE}${profile_path}`}
-                width="342"
-                height="513"
-                alt={name}
-                layout="fixed"
-                quality="60"
-              />
-            ) : (
-              <ProfileFallBack layout="fixed" />
-            )}
-          </Box>
-
-          <PersonInfoCard data={data} />
+          {profile_path ? (
+            <StyledNextImage
+              src={`${IMAGE_BASE_URL}${MD_STILL_SIZE}${profile_path}`}
+              width="342"
+              height="513"
+              alt={name}
+              layout="fixed"
+              quality="60"
+            />
+          ) : (
+            <ProfileFallBack layout="fixed" />
+          )}
         </Box>
-      </Backdrop>
-    </>
+
+        <PersonInfoCard data={data} />
+      </Box>
+    </Backdrop>
   );
 };
 
