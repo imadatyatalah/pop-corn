@@ -1,4 +1,9 @@
-import { StyledMediaFallBack } from "./styles/fallBack.styles";
+import styled from "@emotion/styled";
+import NextImage from "next/image";
+
+const StyledMediaFallBack = styled(NextImage)`
+  opacity: 50%;
+`;
 
 export const PosterFallBack = (props) => (
   <>
