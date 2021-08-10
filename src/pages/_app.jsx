@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useState } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -13,22 +13,19 @@ import "@fontsource/poppins/latin-400.css";
 import "@fontsource/poppins/latin-600.css";
 
 const MyApp = ({ Component, pageProps }) => {
-  const queryClientRef = useRef();
-
-  if (!queryClientRef.current) {
-    queryClientRef.current = new QueryClient();
-  }
+  const [queryClient] = useState(() => new QueryClient());
 
   return (
     <>
       <DefaultSeo {...SEO} />
 
-      <QueryClientProvider client={queryClientRef.current}>
+      <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <ChakraProvider theme={theme}>
             <Component {...pageProps} />
           </ChakraProvider>
         </Hydrate>
+
         <ReactQueryDevtools />
       </QueryClientProvider>
     </>
