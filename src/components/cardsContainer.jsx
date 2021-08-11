@@ -11,6 +11,7 @@ const CardsContainer = ({ children }) => (
     px={[4, 8, 12, 16, 20]}
     maxW={MAX_WIDTH}
     mx="auto"
+    py="8"
   >
     <Grid
       templateColumns={{
