@@ -2,7 +2,7 @@ import { QueryClient, useQuery } from "react-query";
 import { dehydrate } from "react-query/hydration";
 import { NextSeo } from "next-seo";
 
-import { MediaCards as MoviesCards } from "@/components/UI/mediaCards";
+import { MediaCards as MoviesCards } from "@/components/mediaCards";
 import { getMovies } from "@/lib/movies";
 import config from "config";
 

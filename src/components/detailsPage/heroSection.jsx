@@ -4,7 +4,7 @@ import NextLink from "next/link";
 
 import { IMAGE_BASE_URL, LG_POSTER_SIZE, MD_STILL_SIZE } from "config";
 import { StyledNextImage } from "@/styles/index";
-import { PosterFallBack, ProfileFallBack } from "../UI/fallBack";
+import { PosterFallBack, ProfileFallBack } from "../fallBack";
 import { MediaInfoCard, PersonInfoCard } from "./infoCard";
 import Backdrop from "./backdrop";
 

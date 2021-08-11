@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 
 import { getTvShows } from "@/lib/tvShows";
-import { MediaCards as TvShowsCards } from "@/components/UI/mediaCards";
+import { MediaCards as TvShowsCards } from "@/components/mediaCards";
 import config from "config";
 
 const getPageTitle = (pID) => {

@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 
 import { getMovies } from "@/lib/movies";
-import { MediaCards as MoviesCards } from "@/components/UI/mediaCards";
+import { MediaCards as MoviesCards } from "@/components/mediaCards";
 import config from "config";
 
 const getPageTitle = (pID) => {
