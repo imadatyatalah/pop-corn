@@ -13,14 +13,14 @@ const Header = () => (
       display="flex"
       justifyContent="space-between"
       alignItems="center"
-      h="4rem"
+      h="4.25rem"
       px={[4, 8, 12, 16, 20]}
       maxW={MAX_WIDTH}
       mx="auto"
     >
       <div>
         <NextLink href="/">
-          <a>
+          <a className="flex">
             <NextImage
               src="/popcorn.png"
               width="50"
