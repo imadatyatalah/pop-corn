@@ -2,7 +2,7 @@ import React from "react";
 import NextImage from "next/image";
 import NextLink from "next/link";
 
-import { Box } from "@chakra-ui/react";
+import { Box, chakra } from "@chakra-ui/react";
 
 import { MAX_WIDTH } from "config";
 import Navbar from "./navBar";
@@ -20,14 +20,14 @@ const Header = () => (
     >
       <div>
         <NextLink href="/">
-          <a className="flex">
+          <chakra.a display="flex">
             <NextImage
               src="/popcorn.png"
               width="50"
               height="50"
               alt="pop corn"
             />
-          </a>
+          </chakra.a>
         </NextLink>
       </div>
       <Navbar />
