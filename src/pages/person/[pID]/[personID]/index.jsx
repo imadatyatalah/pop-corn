@@ -46,7 +46,7 @@ const Person = () => {
               url: `${IMAGE_BASE_URL}${MD_STILL_SIZE}${data.profile_path}`,
               width: "342",
               height: "513",
-              alt: `${data.title} profile image`,
+              alt: `${data.name} profile image`,
             },
           ],
         }}
