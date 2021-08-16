@@ -19,7 +19,7 @@ const Header = () => (
       mx="auto"
     >
       <div>
-        <NextLink href="/">
+        <NextLink href="/" passHref>
           <chakra.a display="flex">
             <NextImage
               src="/popcorn.png"
