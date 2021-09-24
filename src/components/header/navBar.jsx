@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NextLink from "next/link";
 
-import { Box, chakra, useColorModeValue } from "@chakra-ui/react";
+import { Box, chakra } from "@chakra-ui/react";
 import HamburgerMenu from "./hamburgerMenu";
 
 const LINKS = [
@@ -12,9 +12,6 @@ const LINKS = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const bg = useColorModeValue("gray.200", "gray.300");
-  const color = useColorModeValue("black", "white");
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -30,8 +27,8 @@ const Navbar = () => {
     >
       <HamburgerMenu toggled={isOpen} toggle={setIsOpen} />
       <chakra.ul
-        bg={{ base: bg, lg: "transparent" }}
-        color={{ base: "black", lg: color }}
+        bg={{ base: "gray.200", lg: "transparent" }}
+        color="black"
         display={{
           base: isOpen ? "block" : "none",
           lg: "flex",
