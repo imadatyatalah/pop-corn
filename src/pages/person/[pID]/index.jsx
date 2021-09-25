@@ -1,11 +1,12 @@
-import { QueryClient, useQuery } from "react-query";
+import { QueryClient, useInfiniteQuery } from "react-query";
 import { dehydrate } from "react-query/hydration";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
+import InfiniteScroll from "react-infinite-scroller";
 
-import { getPeople } from "@/lib/people";
 import { PeopleCards } from "@/components/mediaCards";
-import config from "config";
+import CardsContainer from "@/components/cardsContainer";
+import config, { fetcher, BASE_URL, API_KEY } from "config";
 
 const getPageTitle = (pID) => {
   if (pID === "popular") {
@@ -14,16 +15,28 @@ const getPageTitle = (pID) => {
 };
 
 const PID = () => {
-  const router = useRouter();
-  const { query } = router;
+  const {
+    query: { pID },
+  } = useRouter();
 
-  const { data } = useQuery(["people", query.pID], () =>
-    getPeople(query.pID, 1)
+  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery(
+    ["people", pID],
+    ({ pageParam = 1 }) =>
+      fetcher(
+        `${BASE_URL}person/${pID}?api_key=${API_KEY}&language=en-US&page=${pageParam}`
+      ),
+    {
+      getNextPageParam: (lastPage) => {
+        const { page, total_pages } = lastPage;
+
+        return page < total_pages ? page + 1 : undefined;
+      },
+    }
   );
 
-  const title = `${getPageTitle(query.pID)} People`;
+  const title = `${getPageTitle(pID)} People`;
   const description = "Get the most Popular People.";
-  const url = `${config.canonical}person/${query.pID}`;
+  const url = `${config.canonical}person/${pID}`;
 
   return (
     <>
@@ -34,7 +47,13 @@ const PID = () => {
         openGraph={{ title, description, url }}
       />
 
-      <PeopleCards data={data} pID={query.pID} />
+      <InfiniteScroll hasMore={hasNextPage} loadMore={fetchNextPage}>
+        <CardsContainer>
+          {data.pages.map((page) => (
+            <PeopleCards data={page.results} pID={pID} key={page.page} />
+          ))}
+        </CardsContainer>
+      </InfiniteScroll>
     </>
   );
 };
@@ -43,16 +62,22 @@ export const getStaticPaths = async () => {
   return { paths: [{ params: { pID: "popular" } }], fallback: false };
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params: { pID } }) => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(["people", params.pID], () =>
-    getPeople(params.pID, 1)
+  await queryClient.prefetchInfiniteQuery(
+    ["people", pID],
+    ({ pageParam = 1 }) =>
+      fetcher(
+        `${BASE_URL}person/${pID}?api_key=${API_KEY}&language=en-US&page=${pageParam}`
+      )
   );
 
   return {
-    props: { dehydratedState: dehydrate(queryClient) },
-    revalidate: 1,
+    props: {
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+    },
+    revalidate: 60,
   };
 };
 
