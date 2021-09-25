@@ -79,7 +79,7 @@ MediaCards.defaultProps = {
 };
 
 MediaCards.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
   mediaType: PropTypes.string.isRequired,
   pID: PropTypes.string,
 };
@@ -89,6 +89,6 @@ PeopleCards.defaultProps = {
 };
 
 PeopleCards.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
   pID: PropTypes.string,
 };

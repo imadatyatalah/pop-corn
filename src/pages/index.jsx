@@ -4,20 +4,16 @@ import { NextSeo } from "next-seo";
 import InfiniteScroll from "react-infinite-scroller";
 
 import { MediaCards as MoviesCards } from "@/components/mediaCards";
+import { getMovies } from "@/lib/movies";
 import CardsContainer from "@/components/cardsContainer";
-import config, { fetcher, BASE_URL, API_KEY } from "config";
+import config from "config";
 
 const type = "popular";
-
-const getMoviesInf = ({ pageParam = 1 }) =>
-  fetcher(
-    `${BASE_URL}movie/${type}?api_key=${API_KEY}&language=en-US&page=${pageParam}`
-  );
 
 const Home = () => {
   const { data, fetchNextPage, hasNextPage } = useInfiniteQuery(
     ["movies", type],
-    getMoviesInf,
+    ({ pageParam = 1 }) => getMovies(type, pageParam),
     {
       getNextPageParam: (lastPage) => {
         const { page, total_pages } = lastPage;
@@ -58,7 +54,10 @@ const Home = () => {
 export const getStaticProps = async () => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchInfiniteQuery(["movies", type], getMoviesInf);
+  await queryClient.prefetchInfiniteQuery(
+    ["movies", type],
+    ({ pageParam = 1 }) => getMovies(type, pageParam)
+  );
 
   return {
     props: {

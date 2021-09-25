@@ -5,8 +5,9 @@ import { NextSeo } from "next-seo";
 import InfiniteScroll from "react-infinite-scroller";
 
 import { PeopleCards } from "@/components/mediaCards";
+import { getPeople } from "@/lib/people";
 import CardsContainer from "@/components/cardsContainer";
-import config, { fetcher, BASE_URL, API_KEY } from "config";
+import config from "config";
 
 const getPageTitle = (pID) => {
   if (pID === "popular") {
@@ -21,10 +22,7 @@ const PID = () => {
 
   const { data, fetchNextPage, hasNextPage } = useInfiniteQuery(
     ["people", pID],
-    ({ pageParam = 1 }) =>
-      fetcher(
-        `${BASE_URL}person/${pID}?api_key=${API_KEY}&language=en-US&page=${pageParam}`
-      ),
+    ({ pageParam = 1 }) => getPeople(pID, pageParam),
     {
       getNextPageParam: (lastPage) => {
         const { page, total_pages } = lastPage;
@@ -67,10 +65,7 @@ export const getStaticProps = async ({ params: { pID } }) => {
 
   await queryClient.prefetchInfiniteQuery(
     ["people", pID],
-    ({ pageParam = 1 }) =>
-      fetcher(
-        `${BASE_URL}person/${pID}?api_key=${API_KEY}&language=en-US&page=${pageParam}`
-      )
+    ({ pageParam = 1 }) => getPeople(pID, pageParam)
   );
 
   return {

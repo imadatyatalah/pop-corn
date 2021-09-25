@@ -5,8 +5,9 @@ import { NextSeo } from "next-seo";
 import InfiniteScroll from "react-infinite-scroller";
 
 import { MediaCards as TvShowsCards } from "@/components/mediaCards";
+import { getTvShows } from "@/lib/tvShows";
 import CardsContainer from "@/components/cardsContainer";
-import config, { fetcher, BASE_URL, API_KEY } from "config";
+import config from "config";
 
 const getPageTitle = (pID) => {
   if (pID === "popular") {
@@ -27,10 +28,7 @@ const PID = () => {
 
   const { data, fetchNextPage, hasNextPage } = useInfiniteQuery(
     ["TvShows", pID],
-    ({ pageParam = 1 }) =>
-      fetcher(
-        `${BASE_URL}tv/${pID}?api_key=${API_KEY}&language=en-US&page=${pageParam}`
-      ),
+    ({ pageParam = 1 }) => getTvShows(pID, pageParam),
     {
       getNextPageParam: (lastPage) => {
         const { page, total_pages } = lastPage;
@@ -87,10 +85,7 @@ export const getStaticProps = async ({ params: { pID } }) => {
 
   await queryClient.prefetchInfiniteQuery(
     ["TvShows", pID],
-    ({ pageParam = 1 }) =>
-      fetcher(
-        `${BASE_URL}tv/${pID}?api_key=${API_KEY}&language=en-US&page=${pageParam}`
-      )
+    ({ pageParam = 1 }) => getTvShows(pID, pageParam)
   );
 
   return {
