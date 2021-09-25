@@ -1,10 +1,12 @@
-import { QueryClient, useQuery } from "react-query";
+import { QueryClient, useInfiniteQuery } from "react-query";
 import { dehydrate } from "react-query/hydration";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
+import InfiniteScroll from "react-infinite-scroller";
 
-import { getMovies } from "@/lib/movies";
 import { MediaCards as MoviesCards } from "@/components/mediaCards";
+import { getMovies } from "@/lib/movies";
+import CardsContainer from "@/components/cardsContainer";
 import config from "config";
 
 const getPageTitle = (pID) => {
@@ -20,17 +22,26 @@ const getPageTitle = (pID) => {
 };
 
 const PID = () => {
-  const router = useRouter();
-  const { query } = router;
+  const {
+    query: { pID },
+  } = useRouter();
 
-  const { data } = useQuery(["movies", query.pID], () =>
-    getMovies(query.pID, 1)
+  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery(
+    ["movies", pID],
+    ({ pageParam = 1 }) => getMovies(pID, pageParam),
+    {
+      getNextPageParam: (lastPage) => {
+        const { page, total_pages } = lastPage;
+
+        return page < total_pages ? page + 1 : undefined;
+      },
+    }
   );
 
-  const title = `${getPageTitle(query.pID)} Movies`;
+  const title = `${getPageTitle(pID)} Movies`;
   const description =
     "Get the most Popular Movies, Now Playing Movies, Upcoming Movies and also Top Rated Movies!";
-  const url = `${config.canonical}movie/${query.pID}`;
+  const url = `${config.canonical}movie/${pID}`;
 
   return (
     <>
@@ -41,7 +52,18 @@ const PID = () => {
         openGraph={{ title, description, url }}
       />
 
-      <MoviesCards data={data.results} mediaType="movie" pID={query.pID} />
+      <InfiniteScroll hasMore={hasNextPage} loadMore={fetchNextPage}>
+        <CardsContainer>
+          {data.pages.map((page) => (
+            <MoviesCards
+              data={page.results}
+              mediaType="movie"
+              pID={pID}
+              key={page.page}
+            />
+          ))}
+        </CardsContainer>
+      </InfiniteScroll>
     </>
   );
 };
@@ -58,16 +80,19 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params: { pID } }) => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(["movies", params.pID], () =>
-    getMovies(params.pID, 1)
+  await queryClient.prefetchInfiniteQuery(
+    ["movies", pID],
+    ({ pageParam = 1 }) => getMovies(pID, pageParam)
   );
 
   return {
-    props: { dehydratedState: dehydrate(queryClient) },
-    revalidate: 1,
+    props: {
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+    },
+    revalidate: 60,
   };
 };
 
