@@ -1,6 +1,5 @@
-import React from "react";
-import NextImage from "next/image";
-import NextLink from "next/link";
+import Image from "next/image";
+import Link from "next/link";
 
 import { Box, chakra } from "@chakra-ui/react";
 
@@ -19,16 +18,11 @@ const Header = () => (
       mx="auto"
     >
       <div>
-        <NextLink href="/" passHref>
+        <Link href="/" passHref>
           <chakra.a display="flex">
-            <NextImage
-              src="/popcorn.png"
-              width="50"
-              height="50"
-              alt="pop corn"
-            />
+            <Image src="/popcorn.png" width="50" height="50" alt="pop corn" />
           </chakra.a>
-        </NextLink>
+        </Link>
       </div>
       <Navbar />
     </Box>

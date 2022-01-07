@@ -34,9 +34,6 @@ const Movie = () => {
         description={description}
         canonical={url}
         openGraph={{
-          title,
-          description,
-          url,
           images: [
             {
               url: `${IMAGE_BASE_URL}${LG_POSTER_SIZE}${data.poster_path}`,

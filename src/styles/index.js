@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
-import NextImage from "next/image";
+import Image from "next/image";
 import styled from "@emotion/styled";
 
-export const StyledNextImage = styled(NextImage)`
+export const StyledNextImage = styled(Image)`
   border-radius: 0.375rem;
 `;
 

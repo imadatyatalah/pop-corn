@@ -1,5 +1,5 @@
 import { Box, chakra } from "@chakra-ui/react";
-import NextLink from "next/link";
+import Link from "next/link";
 import PropTypes from "prop-types";
 
 import { IMAGE_BASE_URL, LG_POSTER_SIZE, MD_STILL_SIZE } from "config";
@@ -10,7 +10,7 @@ import CircularProgressbar from "@/components/circularProgressbar";
 export const MediaCards = ({ data, mediaType, pID }) =>
   data?.map(({ id, poster_path, title, name, vote_average, media_type }) => (
     <Box pos="relative" key={id}>
-      <NextLink href={`/${mediaType || media_type}/${pID}/${id}`} passHref>
+      <Link href={`/${mediaType || media_type}/${pID}/${id}`} passHref>
         <chakra.a
           d="flex"
           bgColor="gray.500"
@@ -33,7 +33,7 @@ export const MediaCards = ({ data, mediaType, pID }) =>
             <PosterFallBack />
           )}
         </chakra.a>
-      </NextLink>
+      </Link>
 
       <CircularProgressbar
         value={vote_average}
@@ -47,7 +47,7 @@ export const MediaCards = ({ data, mediaType, pID }) =>
 export const PeopleCards = ({ data, pID }) =>
   data?.map(({ id, profile_path, name }) => (
     <Box pos="relative" key={id}>
-      <NextLink href={`/person/${pID}/${id}`} passHref>
+      <Link href={`/person/${pID}/${id}`} passHref>
         <chakra.a
           d="flex"
           bgColor="gray.500"
@@ -70,7 +70,7 @@ export const PeopleCards = ({ data, pID }) =>
             <ProfileFallBack />
           )}
         </chakra.a>
-      </NextLink>
+      </Link>
     </Box>
   ));
 

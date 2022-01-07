@@ -34,9 +34,6 @@ const Person = () => {
         description={description}
         canonical={url}
         openGraph={{
-          title,
-          description,
-          url,
           profile: {
             firstName: data.name,
             gender: data.gender == 1 ? "female" : "male",

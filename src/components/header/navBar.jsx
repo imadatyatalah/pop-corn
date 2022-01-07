@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import NextLink from "next/link";
+import { useState } from "react";
+import Link from "next/link";
 
 import { Box, chakra } from "@chakra-ui/react";
 import HamburgerMenu from "./hamburgerMenu";
@@ -51,9 +51,9 @@ const Navbar = () => {
             py={{ base: "3", lg: "0" }}
             key={path}
           >
-            <NextLink href={path}>
+            <Link href={path}>
               <a onClick={closeMenu}>{name}</a>
-            </NextLink>
+            </Link>
           </chakra.li>
         ))}
       </chakra.ul>

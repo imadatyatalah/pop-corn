@@ -10,25 +10,25 @@
     "prettier:check": "prettier --check ."
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.8",
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
+    "@chakra-ui/react": "^1.7.4",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@fontsource/poppins": "^4.5.0",
     "dayjs": "^1.10.7",
-    "framer-motion": "^4.1.17",
+    "framer-motion": "^5",
     "hamburger-react": "^2.4.1",
-    "next": "^11.1.2",
+    "next": "^12.0.7",
     "next-seo": "^4.28.1",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-infinite-scroller": "^1.2.4",
-    "react-query": "^3.24.4",
-    "sharp": "^0.29.1"
+    "react-query": "^3.34.7"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-next": "^11.1.2",
-    "prettier": "^2.4.1"
+    "eslint": "^8.6.0",
+    "eslint-config-next": "^12.0.7",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1"
   }
 }

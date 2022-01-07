@@ -45,12 +45,7 @@ const PID = () => {
 
   return (
     <>
-      <NextSeo
-        title={title}
-        description={description}
-        canonical={url}
-        openGraph={{ title, description, url }}
-      />
+      <NextSeo title={title} description={description} canonical={url} />
 
       <InfiniteScroll hasMore={hasNextPage} loadMore={fetchNextPage}>
         <CardsContainer>

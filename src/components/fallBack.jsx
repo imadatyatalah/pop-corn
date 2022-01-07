@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import NextImage from "next/image";
+import Image from "next/image";
 
-const StyledMediaFallBack = styled(NextImage)`
+const StyledMediaFallBack = styled(Image)`
   opacity: 50%;
 `;
 

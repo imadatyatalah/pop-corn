@@ -32,7 +32,6 @@ const Home = () => {
         title={title}
         description={description}
         canonical={config.canonical}
-        openGraph={{ title, description }}
       />
 
       <InfiniteScroll hasMore={hasNextPage} loadMore={fetchNextPage}>

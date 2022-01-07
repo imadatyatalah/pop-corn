@@ -1,6 +1,6 @@
 import { Box, Button } from "@chakra-ui/react";
 import PropTypes from "prop-types";
-import NextLink from "next/link";
+import Link from "next/link";
 
 import { IMAGE_BASE_URL, LG_POSTER_SIZE, MD_STILL_SIZE } from "config";
 import { StyledNextImage } from "@/styles/index";
@@ -14,11 +14,11 @@ export const MediaDetailsPage = ({ data, backBtnPath }) => {
   return (
     <Backdrop backdropPath={backdrop_path}>
       <Box pt={{ base: "3rem", lg: "2rem" }}>
-        <NextLink href={backBtnPath} passHref>
+        <Link href={backBtnPath} passHref>
           <Button px="8" colorScheme="facebook">
             Back
           </Button>
-        </NextLink>
+        </Link>
       </Box>
 
       <Box
@@ -61,11 +61,11 @@ export const PersonDetailsPage = ({ data, backdropPath, backBtnPath }) => {
   return (
     <Backdrop backdropPath={backdropPath}>
       <Box pt={{ base: "3rem", lg: "2rem" }}>
-        <NextLink href={backBtnPath} passHref>
+        <Link href={backBtnPath} passHref>
           <Button px="8" colorScheme="facebook">
             Back
           </Button>
-        </NextLink>
+        </Link>
       </Box>
 
       <Box
