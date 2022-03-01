@@ -23,16 +23,12 @@ const TvShow = () => {
     return <div>Loading...</div>;
   }
 
-  const title = data.name;
-  const description = data.overview;
-  const url = `${config.canonical}tv/${query.pID}/${query.TvShowID}`;
-
   return (
     <>
       <NextSeo
-        title={title}
-        description={description}
-        canonical={url}
+        title={data.name}
+        description={data.overview}
+        canonical={`${config.canonical}tv/${query.pID}/${query.TvShowID}`}
         openGraph={{
           images: [
             {

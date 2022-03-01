@@ -23,16 +23,12 @@ const Person = () => {
     return <div>Loading...</div>;
   }
 
-  const title = data.name;
-  const description = data.biography;
-  const url = `${config.canonical}person/${query.pID}/${query.personID}`;
-
   return (
     <>
       <NextSeo
-        title={title}
-        description={description}
-        canonical={url}
+        title={data.name}
+        description={data.biography}
+        canonical={`${config.canonical}person/${query.pID}/${query.personID}`}
         openGraph={{
           profile: {
             firstName: data.name,

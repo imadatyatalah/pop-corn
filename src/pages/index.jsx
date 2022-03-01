@@ -23,14 +23,11 @@ const Home = () => {
     }
   );
 
-  const title = "Home";
-  const description = "Get the latest Movies, Tv shows, and People.";
-
   return (
     <>
       <NextSeo
-        title={title}
-        description={description}
+        title="Home"
+        description="Get the latest Movies, Tv shows, and People."
         canonical={config.canonical}
       />
 

@@ -23,16 +23,12 @@ const Movie = () => {
     return <div>Loading...</div>;
   }
 
-  const title = data.title;
-  const description = data.overview;
-  const url = `${config.canonical}movie/${query.pID}/${query.movieID}`;
-
   return (
     <>
       <NextSeo
-        title={title}
-        description={description}
-        canonical={url}
+        title={data.title}
+        description={data.overview}
+        canonical={`${config.canonical}movie/${query.pID}/${query.movieID}`}
         openGraph={{
           images: [
             {
