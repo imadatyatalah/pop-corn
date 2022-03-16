@@ -1,13 +1,14 @@
+import React from "react";
+
 import { Box, Flex, Heading, List, ListItem } from "@chakra-ui/react";
 import dayjs from "dayjs";
-import PropTypes from "prop-types";
 
 import { convertMinutesToHours } from "@/lib/convertMinutesToHours";
 import { calculateAge } from "@/lib/calculateAge";
 import { TagLine, Title, InfoCardStyles } from "@/styles/index";
 import CircularProgressbar from "@/components/circularProgressbar";
 
-const Container = ({ children }) => (
+const Container = ({ children }: { children: React.ReactNode }) => (
   <Box
     w="full"
     color="black"
@@ -22,7 +23,7 @@ const Container = ({ children }) => (
   </Box>
 );
 
-export const MediaInfoCard = ({ data }) => {
+export const MediaInfoCard = ({ data }: { data: any }) => {
   const {
     title,
     name,
@@ -45,7 +46,9 @@ export const MediaInfoCard = ({ data }) => {
           </Heading>
 
           <List py="1">
-            <ListItem>{genres?.map(({ name }) => name).join(", ")}</ListItem>
+            <ListItem>
+              {genres?.map(({ name }: any) => name).join(", ")}
+            </ListItem>
 
             <ListItem>
               {dayjs(release_date || first_air_date).format("MMMM DD, YYYY")}
@@ -68,7 +71,9 @@ export const MediaInfoCard = ({ data }) => {
 
         <ListItem py="px">
           <Title>Spoken language: </Title>
-          {spoken_languages?.map(({ english_name }) => english_name).join(", ")}
+          {spoken_languages
+            ?.map(({ english_name }: any) => english_name)
+            .join(", ")}
         </ListItem>
 
         {runtime && (
@@ -82,7 +87,7 @@ export const MediaInfoCard = ({ data }) => {
   );
 };
 
-export const PersonInfoCard = ({ data }) => {
+export const PersonInfoCard = ({ data }: { data: any }) => {
   const {
     name,
     birthday,
@@ -139,16 +144,4 @@ export const PersonInfoCard = ({ data }) => {
       </List>
     </Container>
   );
-};
-
-Container.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-MediaInfoCard.propTypes = {
-  data: PropTypes.object.isRequired,
-};
-
-PersonInfoCard.propTypes = {
-  data: PropTypes.object.isRequired,
 };

@@ -1,9 +1,13 @@
 import { Box } from "@chakra-ui/react";
-import PropTypes from "prop-types";
 
 import { IMAGE_BASE_URL, MAX_WIDTH, MD_BACKDROP_SIZE } from "config";
 
-const Backdrop = ({ backdropPath, children }) => (
+interface Props {
+  backdropPath: string;
+  children: React.ReactNode;
+}
+
+const Backdrop = ({ backdropPath, children }: Props) => (
   <Box
     as="section"
     bgImage={`linear-gradient(to top, rgba(21,94,117,1) 0%, rgba(21,94,117,0) 100%), url(${`${IMAGE_BASE_URL}${MD_BACKDROP_SIZE}${backdropPath}`})`}
@@ -17,10 +21,5 @@ const Backdrop = ({ backdropPath, children }) => (
     {children}
   </Box>
 );
-
-Backdrop.propTypes = {
-  backdropPath: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
 
 export default Backdrop;

@@ -1,9 +1,12 @@
 import { Box, Grid } from "@chakra-ui/react";
-import PropTypes from "prop-types";
 
 import { MAX_WIDTH } from "config";
 
-const CardsContainer = ({ children }) => (
+interface Props {
+  children: React.ReactNode;
+}
+
+const CardsContainer = ({ children }: Props) => (
   <Box
     as="section"
     d="flex"
@@ -28,9 +31,5 @@ const CardsContainer = ({ children }) => (
     </Grid>
   </Box>
 );
-
-CardsContainer.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default CardsContainer;

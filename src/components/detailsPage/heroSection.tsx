@@ -1,5 +1,4 @@
 import { Box, Button } from "@chakra-ui/react";
-import PropTypes from "prop-types";
 import Link from "next/link";
 
 import { IMAGE_BASE_URL, LG_POSTER_SIZE, MD_STILL_SIZE } from "config";
@@ -8,7 +7,13 @@ import { PosterFallBack, ProfileFallBack } from "../fallBack";
 import { MediaInfoCard, PersonInfoCard } from "./infoCard";
 import Backdrop from "./backdrop";
 
-export const MediaDetailsPage = ({ data, backBtnPath }) => {
+export const MediaDetailsPage = ({
+  data,
+  backBtnPath,
+}: {
+  data: any;
+  backBtnPath: string;
+}) => {
   const { backdrop_path, poster_path, title, name } = data;
 
   return (
@@ -45,6 +50,7 @@ export const MediaDetailsPage = ({ data, backBtnPath }) => {
               quality="60"
             />
           ) : (
+            // @ts-ignore
             <PosterFallBack layout="fixed" />
           )}
         </Box>
@@ -55,7 +61,15 @@ export const MediaDetailsPage = ({ data, backBtnPath }) => {
   );
 };
 
-export const PersonDetailsPage = ({ data, backdropPath, backBtnPath }) => {
+export const PersonDetailsPage = ({
+  data,
+  backdropPath,
+  backBtnPath,
+}: {
+  data: any;
+  backdropPath: string;
+  backBtnPath: string;
+}) => {
   const { profile_path, name } = data;
 
   return (
@@ -92,6 +106,7 @@ export const PersonDetailsPage = ({ data, backdropPath, backBtnPath }) => {
               quality="60"
             />
           ) : (
+            // @ts-ignore
             <ProfileFallBack layout="fixed" />
           )}
         </Box>
@@ -100,23 +115,4 @@ export const PersonDetailsPage = ({ data, backdropPath, backBtnPath }) => {
       </Box>
     </Backdrop>
   );
-};
-
-MediaDetailsPage.defaultProps = {
-  backBtnPath: "/",
-};
-
-MediaDetailsPage.propTypes = {
-  data: PropTypes.object.isRequired,
-  backBtnPath: PropTypes.string.isRequired,
-};
-
-PersonDetailsPage.defaultProps = {
-  backBtnPath: "/",
-};
-
-PersonDetailsPage.propTypes = {
-  data: PropTypes.object.isRequired,
-  backBtnPath: PropTypes.string.isRequired,
-  backdropPath: PropTypes.string,
 };
