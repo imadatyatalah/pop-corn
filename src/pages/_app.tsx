@@ -1,4 +1,6 @@
 import { useState } from "react";
+import type { AppProps } from "next/app";
+
 import { ChakraProvider } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -13,7 +15,7 @@ import "@fontsource/poppins/latin-300.css";
 import "@fontsource/poppins/latin-400.css";
 import "@fontsource/poppins/latin-600.css";
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = useState(() => new QueryClient());
 
   return (

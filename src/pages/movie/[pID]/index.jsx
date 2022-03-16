@@ -38,14 +38,13 @@ const PID = () => {
     }
   );
 
-  const title = `${getPageTitle(pID)} Movies`;
-  const description =
-    "Get the most Popular Movies, Now Playing Movies, Upcoming Movies and also Top Rated Movies!";
-  const url = `${config.canonical}movie/${pID}`;
-
   return (
     <>
-      <NextSeo title={title} description={description} canonical={url} />
+      <NextSeo
+        title={`${getPageTitle(pID)} Movies`}
+        description="Get the most Popular Movies, Now Playing Movies, Upcoming Movies and also Top Rated Movies!"
+        canonical={`${config.canonical}movie/${pID}`}
+      />
 
       <InfiniteScroll hasMore={hasNextPage} loadMore={fetchNextPage}>
         <CardsContainer>

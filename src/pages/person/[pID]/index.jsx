@@ -32,13 +32,13 @@ const PID = () => {
     }
   );
 
-  const title = `${getPageTitle(pID)} People`;
-  const description = "Get the most Popular People.";
-  const url = `${config.canonical}person/${pID}`;
-
   return (
     <>
-      <NextSeo title={title} description={description} canonical={url} />
+      <NextSeo
+        title={`${getPageTitle(pID)} People`}
+        description="Get the most Popular People."
+        canonical={`${config.canonical}person/${pID}`}
+      />
 
       <InfiniteScroll hasMore={hasNextPage} loadMore={fetchNextPage}>
         <CardsContainer>

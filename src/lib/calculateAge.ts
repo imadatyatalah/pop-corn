@@ -1,4 +1,4 @@
-export const calculateAge = (dob) => {
+export const calculateAge = (dob: string) => {
   const birthday = new Date(dob);
 
   const diff = Date.now() - birthday.getTime();

@@ -38,14 +38,13 @@ const PID = () => {
     }
   );
 
-  const title = `${getPageTitle(pID)} Tv Shows`;
-  const description =
-    "Get the most Popular Tv Shows, Airing Today Tv Shows, On The Air Tv Shows and also Top Rated Tv Shows!";
-  const url = `${config.canonical}tv/${pID}`;
-
   return (
     <>
-      <NextSeo title={title} description={description} canonical={url} />
+      <NextSeo
+        title={`${getPageTitle(pID)} Tv Shows`}
+        description="Get the most Popular Tv Shows, Airing Today Tv Shows, On The Air Tv Shows and also Top Rated Tv Shows!"
+        canonical={`${config.canonical}tv/${pID}`}
+      />
 
       <InfiniteScroll hasMore={hasNextPage} loadMore={fetchNextPage}>
         <CardsContainer>
